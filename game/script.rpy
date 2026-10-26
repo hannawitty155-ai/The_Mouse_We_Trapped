@@ -10,6 +10,27 @@ define ed = Character("Edmund")
 define v = Character("Vee")
 define r = Character("Room")
 
+#Backgrounds
+
+image bg bedroom = "BG BedRoom.png"
+image bg hallway = "BG Hallway.jpg"
+image bg kitchen = "BG Kitchen.jpg"
+image bg library = "BG Library.jpg"
+image bg office = "BG Office.jpg"
+image bg outside mansion = "BG Outside Mansion.jpg"
+image bg stairs = "BG Stairs.jpg"
+
+#Characters Expressions
+image Ellie Normal = "Ellie Expr 1.png" 
+image Ellie Surprised = "Ellie Expr 2.jpg"
+image Ellie Mad = "Ellie Expr 3.jpg"
+transform ellie_lower:
+    zoom 0.70
+    xalign 0.67
+    yalign 0.97
+image bg library = "BG Library.jpg"
+
+
 # FOR uh, idk.. wait west wing! yeur six seven 
 
 default west_wing_choice = ""
@@ -35,12 +56,15 @@ label splashscreen:
 
     return
 
+
 # SCENE 1: EXT. MOUSEWELL MANOR Setting: An elegant English country guesthouse stands amid a thick blanket of snow. The approaching blizzard threatens to isolate the manor from the outside world.
 
 
 label start:
+    
+    scene bg hallway
 
-    ra "Good evening, ladies and gentlemen. Twenty years ago, a devastating fire destroyed a local orphanage, claiming the lives of nearly every child inside. Only one orphan survived."
+    ra "Good eve Ladies and Gentle men, Twenty years ago, a great fire befell an orphanage, claiming nearly every soul within. Of all the children, but one survived."
 
     ra "Rumours later emerged that the orphanage's owner had abused the children and deliberately set the building ablaze to conceal his crimes. However, no conclusive evidence was ever found."
 
@@ -49,16 +73,19 @@ label start:
     menu:
 
         "Someone must have been responsible.":
+            show Ellie Normal at ellie_lower with dissolve
 
             e "Children do not simply perish in such numbers without cause. Perhaps the fire was only the beginning of something far worse."
 
         "Rumours are easy to spread when the dead cannot speak.":
+            show Ellie Normal at ellie_lower with dissolve
 
             e "Perhaps the owner was a monster. Perhaps he was merely convenient to blame. I wonder what the surviving child remembers."
 
         "I wonder what became of the owner?":
+            show Ellie Normal at ellie_lower with dissolve
 
-            e "Did he ever answer for his alleged crimes? Or did he simply disappear into the world, leaving the dead behind him?"
+            e "Did he ever answer for his alleged crimes? Or did he simply disappear into the world, leaving the dead behind?"
 
     jump scene_2
 
@@ -67,7 +94,10 @@ label start:
 
 label scene_2:
 
-    ra "An urgent weather advisory for residents across the surrounding counties. Heavy snowfall and strong winds are expected to worsen throughout the evening. Residents are advised to remain indoors and avoid unnecessary travel until conditions improve."
+    scene bg bedroom
+
+    ra "An urgent weather advisory for residents across the surrounding counties. Heavy snowfall and strong winds are expected to worsen throughout the evening."
+    ra "Residents are advised to remain indoors and avoid unnecessary travel until conditions improve."
 
     e "A snowstorm. Just what the household needed. At least it might give me some peace and quiet."
 
@@ -75,21 +105,25 @@ label scene_2:
 
         "At least the storm gives me an excuse to stay inside.":
 
+            scene bg bedroom
+
             e "A little peace and quiet is hardly unreasonable. Though I doubt Mrs Ashcombe would agree."
 
         "I should stop before someone catches me.":
 
+            scene bg bedroom
+
             e "Some people never listen to warnings. Then they expect everyone else to rescue them from their own stupidity."
 
         "Being trapped indoors with other people sounds dreadful.":
+
+            scene bg bedroom
 
             e "Especially when everyone believes their time is more valuable than mine."
 
     e "Nobody pays much attention to a chambermaid. They notice clean sheets, polished furniture, and whether their tea arrives on time. The person responsible for all of it rarely matters."
 
     e "Perhaps that is why I prefer observing people rather than speaking to them. People leave little pieces of themselves everywhere: letters tucked beneath mattresses, drawers left unlocked, and belongings placed where they ought not to be."
-
-    e "I never take anything. I simply have a look. There is a difference, even if other people might disagree."
 
     menu:
 
@@ -114,6 +148,8 @@ label scene_2:
 
 label scene_3:
 
+    scene bg hallway
+
     b "Miss Pritchard. Your break has ended, I presume?"
 
     e "Yes, madam."
@@ -123,6 +159,8 @@ label scene_3:
     menu:
 
         "The Library":
+
+            scene bg library
 
             e "I intended to see whether anything required attention in the library, madam."
 
@@ -136,6 +174,8 @@ label scene_3:
 
         "The Kitchen":
 
+            scene bg kitchen
+
             e "I thought I might make myself useful in the kitchen, madam."
 
             b "See to your own responsibilities before concerning yourself with everyone else's."
@@ -145,6 +185,8 @@ label scene_3:
             e "Ellie thought to herself."
 
         "Straight to Work":
+
+            scene bg hallway
 
             e "I was returning to my duties, madam."
 
@@ -165,12 +207,11 @@ label scene_3:
 
 label scene_3A:
 
-    scene black
-    show text "THE LIBRARY" at truecenter
+    scene bg library
     pause 2.0
     hide text
 
-    L "INT. WEST WING_P3A: The west wing is quieter than the rest of Mousewell Manor. Dim wall lamps illuminate the portraits and polished wooden doors lining the corridor. Outside, the snowstorm rattles the windows."
+    L "The west wing is quieter than the rest of Mousewell Manor. Dim wall lamps illuminate the portraits and polished wooden doors lining the corridor. Outside, the snowstorm rattles the windows."
 
     e "(Ellie walks towards the library, her footsteps softened by the carpet. As she passes one of the private rooms, she hears a faint rustling sound from within, followed by the unmistakable turning of a page.)"
 
@@ -223,7 +264,7 @@ label scene_3A:
             et "That could have gone considerably better. Still, I did discover something. Whether it was worth the scolding is another matter"
 
 
-    scene black
+    scene bg library
     show text "The library is a grand, wood-panelled room filled with towering bookshelves, leather-bound volumes, and the faint smell of old paper. A fireplace provides some warmth against the winter cold."
     pause 6.0
     hide text
@@ -329,7 +370,7 @@ label scene_3A:
 
 label scene_3B:
 
-    scene black
+    scene bg library
     show text "Ellie glances towards the library door, remembering the encounter in the west wing. The manor has plenty of books, plenty of secrets, and an extraordinary number of people who prefer to keep both to themselves." at truecenter
     pause 8.0
     hide text
@@ -363,7 +404,7 @@ label scene_3B:
 
 label scene_3BKitchen:
 
-    scene black
+    scene bg kitchen
     show text "The east wing is quieter than the servants' quarters but less grand than the manor's main hall. Portraits hang along the walls, and the windows are clouded by frost as the snowstorm grows stronger outside." at truecenter
     pause 8.0
     hide text
@@ -393,7 +434,7 @@ label scene_3BKitchen:
 
     # INT. DINING AREA_P3B
 
-    scene black
+    scene bg kitchen
     show text "The dining area is furnished with a long mahogany table, polished silverware, and elaborate china. Despite the elegance of the room, a half-finished plate of food and several crumbs suggest that someone has been enjoying a rather generous meal." at truecenter
     pause 8.0
     hide text
@@ -441,7 +482,7 @@ label scene_3BKitchen:
   
     if path_choice == "kitchen":
 
-        scene black
+        scene bg kitchen
         show text "The kitchen is warm and bustling, with copper pots hanging above the counters and the smell of freshly prepared food lingering in the air. A large stove occupies one side of the room." at truecenter
         pause 8.0
         hide text
@@ -544,7 +585,7 @@ label scene_3C:
 
     # INT. EDMUND'S OFFICE_P3C
 
-    scene black
+    scene bg office
     show text "Edmund's office is a spacious room furnished with dark wooden shelves, a large desk, and leather-bound folders. Despite its respectable appearance, the room is somewhat cluttered with papers, personal belongings, and a half-finished cup of tea." at truecenter
     pause 8.0
     hide text
@@ -623,12 +664,12 @@ label scene_4:
 
     #fuck this scene yo I hate you Nitro
 
-    scene black
+    scene bg hallway
     show text "The hallway stretches across the guest wing, illuminated by warm wall lamps. Beyond the windows, snow continues to fall, covering the manor grounds in white. Ellie stands beside a small service table, checking her list of duties." at truecenter
     pause 6.0
     hide text
 
-    scene black
+    scene bg hallway 
     show text "Ellie unfolds her to-do list and runs a finger down the page. Three guest rooms remain to be tended to, each requiring a different amount of work." at truecenter
     pause 6.0
     hide text
@@ -639,7 +680,7 @@ label scene_4:
 
     et "I ought to begin somewhere. The sooner I finish my duties, the sooner I can look into this business with the missing possession."
 
-    scene black
+    scene bg bedroom
     show text "This room is noticeably messier than the first. Clothes lie across a chair, papers are scattered over the desk, and various discarded items clutter the floor." at truecenter
     pause 6.0
     hide text
@@ -650,7 +691,7 @@ label scene_4:
     if room1_done and room2_done and room3_done:
         jump after_guest_rooms
 
-    scene black
+    scene bg bedroom
     show text "Ellie must inspect the guest rooms and finish her duties before proceeding." at truecenter
     pause 4.0
     hide text
@@ -675,7 +716,7 @@ label scene_4:
 
 label guest_room_1:
 
-    scene black
+    scene bg bedroom
     show text "The guest room is neat and well-maintained. The bed is properly made, the curtains are drawn, and the furniture is arranged with care. Only a few scattered belongings and minor imperfections remain." at truecenter
     pause 6.0
     hide text
@@ -715,7 +756,7 @@ label guest_room_1:
 
 label guest_room_2:
 
-    scene black
+    scene bg bedroom
     show text "This room is noticeably messier than the first. Clothes lie across a chair, papers are scattered over the desk, and various discarded items clutter the floor." at truecenter
     pause 6.0
     hide text
@@ -760,7 +801,7 @@ label guest_room_2:
 
 label guest_room_3:
 
-    scene black
+    scene bg bedroom
     show text "The third room is neither particularly dirty nor entirely tidy. A chair sits at an awkward angle, a book has been left on the wrong shelf, and several personal belongings are scattered around the room." at truecenter
     pause 6.0
     hide text
@@ -814,7 +855,7 @@ label guest_room_3:
 
     # INT. HALLWAY 4
 
-    scene black
+    scene bg hallway
     show text "Having finished all three guest rooms, Ellie gathers her cleaning supplies and checks her to-do list one last time." at truecenter
     pause 6.0
     hide text
