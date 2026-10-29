@@ -105,7 +105,10 @@ screen say(who, what):
             window:
                 id "namebox"
                 style "namebox"
-                text who id "who"
+                if who.lower() == "ellie":
+                    text who id "who" style "ellie_name"
+                else:
+                    text who id "who"
 
         text what id "what"
 
@@ -146,6 +149,9 @@ style namebox:
 
     background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
     padding gui.namebox_borders.padding
+
+style ellie_name:
+    color "#0d4d3b"
 
 style say_label:
     properties gui.text_properties("name", accent=True)
