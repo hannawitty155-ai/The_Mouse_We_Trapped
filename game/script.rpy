@@ -250,6 +250,8 @@ label scene_3:
             show Ellie Normal at ellie_lower with dissolve
             e "Initiative when convenient. Interference when it is not. One does begin to wonder whether there is a correct answer to anything in this house."
 
+            jump scene_kitchenvee
+
         "Straight to Work":
 
             scene bg hallway
@@ -736,6 +738,8 @@ label scene_3BKitchen:
 
   
     if path_choice == "kitchen":
+
+        label scene_kitchenvee:
 
         scene bg kitchen
         show text "The kitchen is warm and bustling, with copper pots hanging above the counters and the smell of freshly prepared food lingering in the air. A large stove occupies one side of the room." at truecenter
